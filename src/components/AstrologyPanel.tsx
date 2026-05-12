@@ -40,9 +40,9 @@ export function AstrologyPanel() {
   };
 
   return (
-    <div className="glass rounded-2xl p-4 space-y-4 border border-purple/20 shadow-[0_0_30px_var(--purple-glow)]">
+    <div className="glass rounded-2xl p-4 space-y-4 border border-[oklch(0.65_0.18_305/30%)] shadow-[0_0_30px_var(--purple-glow)]">
       <div className="flex items-center gap-2 pb-2 border-b border-white/5">
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[oklch(0.65_0.18_305/30%)] to-[oklch(0.65_0.18_305/10%)] flex items-center justify-center border border-purple/30">
+        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[oklch(0.65_0.18_305/30%)] to-[oklch(0.65_0.18_305/10%)] flex items-center justify-center border border-[oklch(0.65_0.18_305/40%)]">
           <Sparkles size={14} className="text-[oklch(0.78_0.15_305)]" />
         </div>
         <div>
