@@ -182,8 +182,20 @@
   .glow-gold {
     box-shadow: 0 0 20px var(--gold-glow);
   }
+  .glow-cyan {
+    box-shadow: 0 0 24px var(--cyan-glow);
+  }
+  .glow-purple {
+    box-shadow: 0 0 24px var(--purple-glow);
+  }
   .text-gradient-royal {
     background: linear-gradient(135deg, var(--teal), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-gold {
+    background: linear-gradient(135deg, oklch(0.85 0.12 85), oklch(0.7 0.14 60));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -191,8 +203,16 @@
   .bg-gradient-royal {
     background: var(--gradient-royal);
   }
+  .bg-gradient-user {
+    background: var(--gradient-user);
+  }
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
   .scrollbar-thin {
     scrollbar-width: thin;
     scrollbar-color: oklch(0.3 0.02 260) transparent;
   }
+  .scrollbar-thin::-webkit-scrollbar { width: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: oklch(0.3 0.02 260); border-radius: 4px; }
 }
