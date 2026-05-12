@@ -5,7 +5,7 @@ import { ChatMessage, TypingIndicator, type Message } from "./ChatMessage";
 import { ChatInput } from "./ChatInput";
 import { AppSidebar } from "./AppSidebar";
 import { ParticlesBackground } from "./ParticlesBackground";
-import { SuggestionChips } from "./SuggestionChips";
+
 import { sendChatMessage } from "../lib/api";
 import goldenLanka from "../assets/golden-lanka.png";
 
