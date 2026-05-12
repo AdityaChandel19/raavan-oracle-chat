@@ -48,9 +48,9 @@ export function ChatMessage({ message }: { message: Message }) {
       {!isUser && (
         <motion.div
           whileHover={{ scale: 1.1, rotate: 5 }}
-          className="w-9 h-9 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center mr-3 mt-1 shrink-0 border border-primary/30 shadow-[0_0_18px_var(--cyan-glow)]"
+          className="w-9 h-9 rounded-full overflow-hidden flex items-center justify-center mr-3 mt-1 shrink-0 border border-primary/30 shadow-[0_0_18px_var(--cyan-glow)] bg-background/40"
         >
-          <span className="text-xs font-display font-bold text-gradient-royal">R</span>
+          <img src={raavanAvatar} alt="Raavan" className="w-full h-full object-cover" />
         </motion.div>
       )}
       <motion.div
