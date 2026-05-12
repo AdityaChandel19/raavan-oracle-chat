@@ -89,8 +89,8 @@ export function TypingIndicator() {
       animate={{ opacity: 1, y: 0 }}
       className="flex items-center gap-3 mb-5"
     >
-      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center shrink-0 border border-primary/30 shadow-[0_0_18px_var(--cyan-glow)]">
-        <span className="text-xs font-display font-bold text-gradient-royal">R</span>
+      <div className="w-9 h-9 rounded-full overflow-hidden flex items-center justify-center shrink-0 border border-primary/30 shadow-[0_0_18px_var(--cyan-glow)] bg-background/40">
+        <img src={raavanAvatar} alt="Raavan" className="w-full h-full object-cover" />
       </div>
       <div className="glass px-4 py-3 rounded-2xl flex items-center gap-1.5 border border-primary/15">
         <span className="text-xs text-muted-foreground mr-2 italic">Raavan is contemplating</span>
