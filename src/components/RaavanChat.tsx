@@ -6,6 +6,7 @@ import { ChatInput } from "./ChatInput";
 import { AppSidebar } from "./AppSidebar";
 import { ParticlesBackground } from "./ParticlesBackground";
 import { sendChatMessage } from "../lib/api";
+import goldenLanka from "../assets/golden-lanka.png";
 
 const WELCOME_MESSAGE: Message = {
   id: "welcome",
