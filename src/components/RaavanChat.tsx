@@ -5,7 +5,7 @@ import { ChatMessage, TypingIndicator, type Message } from "./ChatMessage";
 import { ChatInput } from "./ChatInput";
 import { AppSidebar } from "./AppSidebar";
 import { ParticlesBackground } from "./ParticlesBackground";
-import { SuggestionChips } from "./SuggestionChips";
+
 import { sendChatMessage } from "../lib/api";
 import goldenLanka from "../assets/golden-lanka.png";
 
@@ -68,7 +68,6 @@ export function RaavanChat() {
   };
 
   const clearChat = () => setMessages([WELCOME_MESSAGE]);
-  const showChips = messages.length <= 1 && !isTyping;
 
   return (
     <div className="h-screen flex flex-col relative overflow-hidden">
@@ -145,9 +144,8 @@ export function RaavanChat() {
         </div>
       </div>
 
-      {/* Chips + Input */}
+      {/* Input */}
       <div className="relative z-10">
-        {showChips && <SuggestionChips onPick={handleSend} disabled={isTyping} />}
         <ChatInput onSend={handleSend} disabled={isTyping} />
       </div>
 
