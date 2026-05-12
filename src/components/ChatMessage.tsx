@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { AlertTriangle } from "lucide-react";
+import raavanAvatar from "@/assets/raavan-avatar.png";
 
 export interface Message {
   id: string;
