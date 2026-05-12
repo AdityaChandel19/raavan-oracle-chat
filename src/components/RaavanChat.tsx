@@ -5,6 +5,7 @@ import { ChatMessage, TypingIndicator, type Message } from "./ChatMessage";
 import { ChatInput } from "./ChatInput";
 import { AppSidebar } from "./AppSidebar";
 import { ParticlesBackground } from "./ParticlesBackground";
+import { SuggestionChips } from "./SuggestionChips";
 import { sendChatMessage } from "../lib/api";
 import goldenLanka from "../assets/golden-lanka.png";
 
@@ -56,8 +57,9 @@ export function RaavanChat() {
         {
           id: (Date.now() + 1).toString(),
           role: "bot",
-          content: "⚠️ I couldn't reach the server. Please ensure the backend is running.",
+          content: "The cosmic gateway is temporarily unavailable. Please ensure the backend is awakened and try again.",
           timestamp: new Date(),
+          error: true,
         },
       ]);
     } finally {
@@ -66,6 +68,7 @@ export function RaavanChat() {
   };
 
   const clearChat = () => setMessages([WELCOME_MESSAGE]);
+  const showChips = messages.length <= 1 && !isTyping;
 
   return (
     <div className="h-screen flex flex-col relative overflow-hidden">
@@ -75,12 +78,12 @@ export function RaavanChat() {
         style={{ backgroundImage: `url(${goldenLanka})` }}
         aria-hidden
       />
-      {/* Dark royal overlay for readability */}
+      {/* Stronger dark royal overlay */}
       <div
         className="absolute inset-0 z-0"
         style={{
           background:
-            "linear-gradient(180deg, oklch(0.11 0.02 260 / 0.78) 0%, oklch(0.11 0.02 260 / 0.85) 50%, oklch(0.09 0.02 260 / 0.92) 100%)",
+            "radial-gradient(ellipse at center, oklch(0.11 0.02 260 / 0.78) 0%, oklch(0.08 0.02 260 / 0.92) 70%, oklch(0.06 0.02 260 / 0.96) 100%)",
         }}
         aria-hidden
       />
@@ -91,39 +94,48 @@ export function RaavanChat() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="relative z-10 flex items-center justify-between px-4 py-3 border-b border-border/30 glass-strong"
+        className="relative z-10 flex items-center justify-between px-5 py-4 border-b border-white/5 glass-strong"
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setSidebarOpen(true)}
-            className="text-muted-foreground hover:text-foreground transition-colors"
+            className="text-muted-foreground hover:text-primary transition-colors"
           >
             <Menu size={20} />
           </motion.button>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5">
             <motion.div
-              animate={{ rotate: [0, 5, -5, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              animate={{ rotate: [0, 8, -8, 0], scale: [1, 1.1, 1] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="text-gold drop-shadow-[0_0_8px_var(--gold-glow)]"
             >
-              <Sparkles size={20} className="text-gold" />
+              <Sparkles size={22} />
             </motion.div>
-            <h1 className="font-display text-lg font-bold text-gradient-royal tracking-wide">
-              RAAVAN AI
-            </h1>
+            <div>
+              <h1 className="font-display text-lg font-bold text-gradient-royal tracking-[0.2em] leading-none">
+                RAAVAN AI
+              </h1>
+              <p className="text-[10px] text-muted-foreground/80 tracking-wider mt-0.5 italic">
+                Ancient Knowledge. Modern Intelligence.
+              </p>
+            </div>
           </div>
         </div>
-        <div className="flex items-center gap-1.5">
-          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          <span className="text-xs text-muted-foreground">Online</span>
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-primary/20">
+          <span className="relative flex w-2 h-2">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 animate-ping" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary shadow-[0_0_8px_var(--cyan-glow)]" />
+          </span>
+          <span className="text-[10px] text-foreground/80 tracking-wider uppercase font-medium">Online</span>
         </div>
       </motion.header>
 
       {/* Messages */}
       <div
         ref={scrollRef}
-        className="flex-1 overflow-y-auto px-4 py-6 relative z-10 scrollbar-thin"
+        className="flex-1 overflow-y-auto px-4 py-8 relative z-10 scrollbar-thin"
       >
         <div className="max-w-3xl mx-auto">
           {messages.map((msg) => (
@@ -133,8 +145,9 @@ export function RaavanChat() {
         </div>
       </div>
 
-      {/* Input */}
+      {/* Chips + Input */}
       <div className="relative z-10">
+        {showChips && <SuggestionChips onPick={handleSend} disabled={isTyping} />}
         <ChatInput onSend={handleSend} disabled={isTyping} />
       </div>
 
