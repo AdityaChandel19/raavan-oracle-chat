@@ -136,13 +136,20 @@
   --surface: oklch(0.14 0.015 260);
   --surface-foreground: oklch(0.88 0.01 80);
 
+  --purple: oklch(0.65 0.18 305);
+  --purple-glow: oklch(0.65 0.18 305 / 25%);
+  --cyan-glow: oklch(0.72 0.14 195 / 35%);
   --teal-glow: oklch(0.72 0.14 180 / 30%);
-  --gold-glow: oklch(0.78 0.12 85 / 20%);
+  --gold-glow: oklch(0.78 0.12 85 / 25%);
   --gradient-royal: linear-gradient(135deg, oklch(0.72 0.14 180 / 15%), oklch(0.78 0.12 85 / 10%));
+  --gradient-user: linear-gradient(135deg, oklch(0.72 0.14 180 / 28%), oklch(0.65 0.18 305 / 22%));
   --gradient-glass: linear-gradient(135deg, oklch(1 0 0 / 5%), oklch(1 0 0 / 2%));
-  --glass-border: oklch(1 0 0 / 8%);
-  --glass-bg: oklch(0.15 0.02 260 / 60%);
+  --glass-border: oklch(1 0 0 / 10%);
+  --glass-bg: oklch(0.13 0.02 260 / 55%);
+  --shadow-elegant: 0 20px 60px -20px oklch(0 0 0 / 60%), 0 0 0 1px oklch(1 0 0 / 4%);
 }
+
+@font-face { font-display: swap; }
 
 @layer base {
   * {
