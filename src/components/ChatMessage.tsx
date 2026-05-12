@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import { AlertTriangle } from "lucide-react";
+import raavanAvatar from "@/assets/raavan-avatar.png";
 
 export interface Message {
   id: string;
@@ -47,9 +48,9 @@ export function ChatMessage({ message }: { message: Message }) {
       {!isUser && (
         <motion.div
           whileHover={{ scale: 1.1, rotate: 5 }}
-          className="w-9 h-9 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center mr-3 mt-1 shrink-0 border border-primary/30 shadow-[0_0_18px_var(--cyan-glow)]"
+          className="w-9 h-9 rounded-full overflow-hidden flex items-center justify-center mr-3 mt-1 shrink-0 border border-primary/30 shadow-[0_0_18px_var(--cyan-glow)] bg-background/40"
         >
-          <span className="text-xs font-display font-bold text-gradient-royal">R</span>
+          <img src={raavanAvatar} alt="Raavan" className="w-full h-full object-cover" />
         </motion.div>
       )}
       <motion.div
@@ -88,8 +89,8 @@ export function TypingIndicator() {
       animate={{ opacity: 1, y: 0 }}
       className="flex items-center gap-3 mb-5"
     >
-      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center shrink-0 border border-primary/30 shadow-[0_0_18px_var(--cyan-glow)]">
-        <span className="text-xs font-display font-bold text-gradient-royal">R</span>
+      <div className="w-9 h-9 rounded-full overflow-hidden flex items-center justify-center shrink-0 border border-primary/30 shadow-[0_0_18px_var(--cyan-glow)] bg-background/40">
+        <img src={raavanAvatar} alt="Raavan" className="w-full h-full object-cover" />
       </div>
       <div className="glass px-4 py-3 rounded-2xl flex items-center gap-1.5 border border-primary/15">
         <span className="text-xs text-muted-foreground mr-2 italic">Raavan is contemplating</span>
