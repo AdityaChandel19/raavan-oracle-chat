@@ -68,7 +68,6 @@ export function RaavanChat() {
   };
 
   const clearChat = () => setMessages([WELCOME_MESSAGE]);
-  const showChips = messages.length <= 1 && !isTyping;
 
   return (
     <div className="h-screen flex flex-col relative overflow-hidden">
