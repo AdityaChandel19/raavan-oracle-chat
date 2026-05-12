@@ -145,9 +145,8 @@ export function RaavanChat() {
         </div>
       </div>
 
-      {/* Chips + Input */}
+      {/* Input */}
       <div className="relative z-10">
-        {showChips && <SuggestionChips onPick={handleSend} disabled={isTyping} />}
         <ChatInput onSend={handleSend} disabled={isTyping} />
       </div>
 
