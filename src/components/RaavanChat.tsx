@@ -69,6 +69,21 @@ export function RaavanChat() {
 
   return (
     <div className="h-screen flex flex-col relative overflow-hidden">
+      {/* Golden Lanka background */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${goldenLanka})` }}
+        aria-hidden
+      />
+      {/* Dark royal overlay for readability */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background:
+            "linear-gradient(180deg, oklch(0.11 0.02 260 / 0.78) 0%, oklch(0.11 0.02 260 / 0.85) 50%, oklch(0.09 0.02 260 / 0.92) 100%)",
+        }}
+        aria-hidden
+      />
       <ParticlesBackground />
 
       {/* Header */}
